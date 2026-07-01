@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: Poppins, sans-serif;
+    background: linear-gradient(135deg, #ff6db3, #ff9ad5, #c77dff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding: 60px 0;
+}
+
+
+/* Background */
+
+.luxury-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, .35), transparent 30%), radial-gradient(circle at 80% 30%, rgba(255, 255, 255, .25), transparent 35%), radial-gradient(circle at 50% 80%, rgba(255, 255, 255, .18), transparent 35%);
+    filter: blur(20px);
+}
+
+
+/* Glass Card */
+
+.glass {
+    position: relative;
+    z-index: 10;
+    width: min(90%, 800px);
+    margin: 60px auto;
+    padding: 50px;
+    text-align: center;
+    border-radius: 35px;
+    background: rgba(255, 255, 255, .18);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, .3);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .2);
+}
+
+.title {
+    font-size: 60px;
+    color: white;
+    text-shadow: 0 0 25px hotpink;
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: 24px;
+    color: white;
+    opacity: .95;
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 16px 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    color: white;
+    transition: .35s;
+}
+
+button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 30px hotpink;
+}
+
+
+/* Floating Particles */
+
+.dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    opacity: .8;
+    animation: float linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+.letter {
+    margin-top: 40px;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, .12);
+    max-height: 320px;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.letter h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.letter p {
+    font-size: 18px;
+    line-height: 1.9;
+    white-space: pre-wrap;
+    color: white;
+}
+
+
+/* Gift Box */
+
+.gift-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.gift-box {
+    font-size: 90px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.gift-container h3 {
+    color: white;
+    margin-top: 10px;
+}
+
+@keyframes floatGift {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================
+        PHOTO GALLERY
+============================ */
+
+.gallery {
+    width: min(90%, 1000px);
+    margin: 80px auto;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 40px;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, .3);
+    transition: .4s;
+    cursor: pointer;
+    display: block;
+}
+
+.photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px hotpink;
+}
+
+.photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px hotpink;
+}
+
+.heart-pop {
+    position: fixed;
+    font-size: 35px;
+    pointer-events: none;
+    animation: heartFly 2s linear forwards;
+}
+
+@keyframes heartFly {
+    0% {
+        transform: translateY(0) scale(.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-300px) scale(2);
+        opacity: 0;
+    }
+}
+
+.firework {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: gold;
+    pointer-events: none;
+    animation: boom .8s ease-out forwards;
+    box-shadow: 0 0 8px gold, 0 0 15px hotpink, 0 0 25px cyan;
+}
+
+@keyframes boom {
+    0% {
+        transform: scale(.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#lightbox img {
+    width: 80%;
+    max-width: 700px;
+    border-radius: 20px;
+    animation: zoomIn .4s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.photo {
+    position: relative;
+    z-index: 100;
+}
+
+#prevBtn,
+#nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    background: rgba(255, 255, 255, .2);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#prevBtn {
+    left: 40px;
+}
+
+#nextBtn {
+    right: 40px;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+    background: hotpink;
+}
+
+.secret-box {
+    width: min(90%, 700px);
+    margin: 60px auto;
+    padding: 30px;
+    text-align: center;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, .3);
+}
+
+.secret-box h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.secret-box input {
+    width: 80%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.secret-box p {
+    margin-top: 20px;
+    color: white;
+    font-size: 20px;
+    line-height: 1.8;
+}

@@ -1,0 +1,437 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #000;
+}
+
+.scene {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( -45deg, #ffe3f4, #ffc2df, #ff9dcd, #ffd6ec);
+    background-size: 400% 400%;
+    animation: bgMove 15s ease infinite;
+}
+
+.card {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    padding: 40px;
+    border-radius: 35px;
+    background: rgba(255, 255, 255, .12);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, .25);
+    text-align: center;
+    z-index: 100;
+}
+
+.card h1 {
+    font-size: 60px;
+    color: white;
+    text-shadow: 0 0 20px hotpink, 0 0 40px deeppink;
+}
+
+.card h2 {
+    margin-top: 15px;
+    font-size: 48px;
+    color: #ff1493;
+}
+
+.card p {
+    margin-top: 25px;
+    font-size: 23px;
+    line-height: 1.8;
+    color: white;
+}
+
+.card button {
+    margin-top: 35px;
+    padding: 18px 45px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(90deg, #ff1493, #ff69b4);
+    transition: .4s;
+}
+
+.card button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px hotpink, 0 0 50px deeppink;
+}
+
+.hearts {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    width: 12px;
+    height: 12px;
+    background: #ff1493;
+    transform: rotate(45deg);
+    opacity: .8;
+    animation: floatHeart linear infinite;
+    box-shadow: 0 0 10px hotpink;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ff1493;
+    border-radius: 50%;
+}
+
+.heart::before {
+    left: -6px;
+}
+
+.heart::after {
+    top: -6px;
+}
+
+.sparkle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 10px white, 0 0 20px hotpink, 0 0 40px deeppink;
+    animation: twinkle infinite;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+        transform: scale(.2);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(.2);
+    }
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(405deg);
+        opacity: 0;
+    }
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/*==============================
+      LUXURY CLOUDS
+==============================*/
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, .35);
+    border-radius: 100px;
+    filter: blur(2px);
+    backdrop-filter: blur(8px);
+    animation: cloudMove linear infinite;
+}
+
+.cloud::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: inherit;
+    border-radius: 50%;
+    left: 20px;
+    top: -30px;
+}
+
+.cloud::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: inherit;
+    border-radius: 50%;
+    right: 25px;
+    top: -40px;
+}
+
+@keyframes cloudMove {
+    0% {
+        transform: translateX(-350px);
+    }
+    100% {
+        transform: translateX(120vw);
+    }
+}
+
+
+/*==============================
+     CHERRY BLOSSOM
+==============================*/
+
+.petal {
+    position: absolute;
+    top: -40px;
+    width: 18px;
+    height: 18px;
+    background: #ffd4e8;
+    border-radius: 70% 30% 70% 30%;
+    opacity: .8;
+    animation: petalFall linear infinite;
+}
+
+@keyframes petalFall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(120vh) translateX(120px) rotate(720deg);
+    }
+}
+
+
+/*==============================
+      FAIRY LIGHTS
+==============================*/
+
+.fairy {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 10px white, 0 0 20px gold, 0 0 35px hotpink;
+    animation: fairyGlow 2s infinite alternate;
+}
+
+@keyframes fairyGlow {
+    0% {
+        opacity: .2;
+        transform: scale(.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(2);
+    }
+}
+
+
+/*==============================
+      LUXURY BALLOONS
+==============================*/
+
+.balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 70px;
+    height: 90px;
+    background: linear-gradient( 180deg, #ff8fcf, #ff1493);
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: 0 0 20px hotpink, 0 0 45px deeppink;
+    animation: balloonFloat linear infinite;
+}
+
+.balloon::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    background: white;
+    left: 50%;
+    top: 90px;
+    opacity: .7;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #ff1493;
+    left: 27px;
+    bottom: -7px;
+    transform: rotate(45deg);
+}
+
+@keyframes balloonFloat {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-140vh);
+    }
+}
+
+
+/*==============================
+        BUTTERFLIES
+==============================*/
+
+.butterfly {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background: radial-gradient(circle, #fff, #ff8fd1, #ff1493);
+    clip-path: polygon( 50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+    filter: drop-shadow(0 0 12px hotpink);
+    animation: flyButterfly linear infinite;
+    opacity: .9;
+}
+
+@keyframes flyButterfly {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(80px, -40px) rotate(20deg);
+    }
+    50% {
+        transform: translate(160px, 40px) rotate(-20deg);
+    }
+    75% {
+        transform: translate(240px, -30px) rotate(20deg);
+    }
+    100% {
+        transform: translate(320px, 30px) rotate(0deg);
+    }
+}
+
+#threeCanvas {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card {
+    z-index: 1000;
+}
+
+.hearts,
+.sparkle,
+.cloud,
+.petal,
+.fairy,
+.balloon,
+.butterfly {
+    z-index: 20;
+}
+
+
+/* ===========================
+        SURPRISE POPUP
+=========================== */
+
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+    z-index: 9999;
+}
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-box {
+    width: 520px;
+    max-width: 90%;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    background: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, .25);
+    box-shadow: 0 20px 60px rgba(255, 0, 120, .35);
+    color: white;
+    animation: popupScale .45s ease;
+}
+
+.popup-box h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.popup-box p {
+    line-height: 1.8;
+    font-size: 19px;
+}
+
+.popup-box button {
+    margin-top: 30px;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 40px;
+    background: #ff1493;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: .3s;
+}
+
+.popup-box button:hover {
+    transform: scale(1.08);
+    background: #ff3aa6;
+}
+
+@keyframes popupScale {
+    from {
+        transform: scale(.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
