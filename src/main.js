@@ -415,7 +415,7 @@ surpriseBtn.addEventListener("click", () => {
 
 continueBtn.addEventListener("click", () => {
 
-    window.location.href = "/surprise.html";
+    window.location.href = "./surprise.html";
 
 });
 

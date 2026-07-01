@@ -76,10 +76,12 @@ document.querySelector("#app").innerHTML = `
 
     <div class="gallery-grid">
 
-    <img src="/images/photo1.jpeg" class="photo">
-<img src="/images/photo2.jpeg" class="photo">
-<img src="/images/photo3.jpeg" class="photo">
-<img src="/images/photo4.jpeg" class="photo">
+    <img src="./images/photo1.jpeg" class="photo">
+<img src="./images/photo2.jpeg" class="photo">
+<img src="./images/photo3.jpeg" class="photo">
+<img src="./images/photo4.jpeg" class="photo">
+
+const music = new Audio("./music/birthday.mp3");
 
 </div>
 
